@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets/|api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "functions": {
+    "api/evaluate.ts": {
+      "maxDuration": 60
+    },
+    "api/whatsapp.ts": {
+      "maxDuration": 60
+    }
+  }
+}

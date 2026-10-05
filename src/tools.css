@@ -2206,3 +2206,181 @@
   font-weight: 700;
   color: var(--wa);
 }
+
+/* ==========================================================================
+   Phone polish (≤640px). Last in the cascade on purpose.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* The notebook margin sits inside the 16px gutter and just reads as noise. */
+  body::before {
+    display: none;
+  }
+
+  /* Reviewer tour: a small round button instead of a pill over the content. */
+  .tour-fab {
+    right: 12px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .tour-fab-text {
+    display: none;
+  }
+  .toast {
+    max-width: calc(100vw - 32px - 56px);
+  }
+
+  /* Tool headers: brand on one line, chips and links in one swipeable row. */
+  .db-top {
+    position: static;
+  }
+  .db-top-inner {
+    gap: 10px;
+    min-height: 0;
+    padding-block: 10px;
+  }
+  .db-top-meta {
+    flex-wrap: nowrap;
+    width: calc(100% + var(--gutter) * 2);
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 2px var(--gutter) 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, transparent 0, #000 var(--gutter), #000 calc(100% - 28px), transparent);
+  }
+  .db-top-meta::-webkit-scrollbar {
+    display: none;
+  }
+  .db-top-meta > * {
+    flex: none;
+    white-space: nowrap;
+  }
+  .db-top-meta > :last-child {
+    margin-right: 28px;
+  }
+
+  /* KPI grids: an odd card out stretches instead of sitting alone. */
+  .db-kpis > :last-child:nth-child(even) {
+    grid-column: span 2;
+  }
+  .db-card {
+    padding: 14px;
+  }
+
+  /* Branch picker: one swipeable row, edge to edge. */
+  .branch-picker {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 2px var(--gutter) 6px;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+  }
+  .branch-picker::-webkit-scrollbar {
+    display: none;
+  }
+  .branch-chip {
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  /* Closing card: the stamp sits above the date instead of on top of it. */
+  .final-stamp {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 auto 14px;
+  }
+
+  /* Reviewer tour funnel: numbers already give the order, so drop the arrows. */
+  .loop {
+    gap: 8px;
+  }
+  .loop-step + .loop-step::before {
+    display: none;
+  }
+
+  /* WhatsApp simulator: you're already holding a phone, so drop the bezel. */
+  .phone {
+    height: min(640px, 78dvh);
+    border-width: 1.5px;
+    border-color: var(--ink);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+  .phone-notch {
+    display: none;
+  }
+  .wa-header {
+    padding-top: 12px;
+  }
+
+  /* Growth plan toolbar and page. */
+  .plan {
+    padding-top: 16px;
+  }
+  .plan-bar {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+  .plan-bar .btn {
+    width: 100%;
+  }
+  .plan-doc {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Live room header: students spend an hour here, so keep it short. */
+  .live-top {
+    padding-bottom: 8px;
+  }
+  .live-top-inner {
+    gap: 8px 10px;
+    min-height: 0;
+    padding-top: 8px;
+  }
+  .live-top .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+  .live-title {
+    font-size: 17px;
+  }
+  .live-stats {
+    margin-left: auto;
+  }
+  .live-demo {
+    flex-wrap: nowrap;
+    width: calc(100% + var(--gutter) * 2);
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 0 var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .live-demo::-webkit-scrollbar {
+    display: none;
+  }
+  .live-demo > * {
+    flex: none;
+    white-space: nowrap;
+  }
+  .live-top .chip {
+    padding: 3px 9px;
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .live-title {
+    display: none;
+  }
+}

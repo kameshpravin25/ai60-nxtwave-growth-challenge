@@ -7,8 +7,8 @@ export default function TourButton() {
   const path = usePath()
   if (mode !== 'demo' || path === '/tour' || path === '/live' || path.startsWith('/verify/')) return null
   return (
-    <Link href="/tour" className="tour-fab">
-      <span aria-hidden>🧭</span> Reviewer tour
+    <Link href="/tour" className="tour-fab" aria-label="Reviewer tour">
+      <span aria-hidden>🧭</span> <span className="tour-fab-text">Reviewer tour</span>
     </Link>
   )
 }
